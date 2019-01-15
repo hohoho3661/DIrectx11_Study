@@ -1,0 +1,36 @@
+0111
+
+<iostream>
+<windows.h>
+
+int main()		// main의 기본형은 int
+{
+	int a = 1;
+	printf("%d\n", a);
+	printf("%d\n", a << 1); // a를 왼쪽으로 1만큼 밀면 2가됨
+
+	DWORD dw = 0xFF808080; // argb
+
+	unsigned char alpha = (dw & 0xFF000000) >> 24; // 오른쪽 shift로 밀어줌 // 문자로
+	unsigned char red = (dw & 0x00FF0000) >> 16;
+
+	printf("%d\n" alpha); // ,,,,, 컬러값에서 원하는 값을 뽑아쓸때
+	printf("%d\n" red);
+
+
+
+
+	unsigned char green = 245;
+	unsigned char blue = 65;
+
+	DWORD dwAlpha = (alpha << 24); // 밀어줘서 값을넣어
+	DWORD dwRed = (alpha << 16);
+	DWORD dwGreen = (alpha << 8);
+	DWORD dwBlue = (alpha << 0);
+
+	DWORD color = dwAlpha | dwRed | dwGreen | dwBlue; // 뒤에서부터 or연산
+
+
+	return 0;
+
+}

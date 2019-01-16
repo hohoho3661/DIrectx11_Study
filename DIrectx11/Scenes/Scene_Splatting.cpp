@@ -47,6 +47,14 @@ void Scene_Splatting::Init()
 	BoxCollider* collider = new BoxCollider(obj);
 	collider->Scale(1.1f, 1.1f);
 	obj->AddComponent(collider);
+
+	D3D11_RASTERIZER_DESC rsDesc;
+	ZeroMemory(&rsDesc, sizeof(D3D11_RASTERIZER_DESC)); // 초기화
+
+	//ccw 카운트클락와치(역시계방향 지우겠다)     cw 클락와치(시계방향 지우겠다)
+	rsDesc.CullMode = D3D11_CULL_NONE; // CullMode = 방향설정    ,,, NONE = 앞뒷면 다 출력,, 당연히 프레임은 깎임
+	rsDesc.FillMode = D3D11_FILL_WIREFRAME; // SOLID = 기본,, WIREFRAME = 정점끼리 연결
+	D2D::GetDevice()->CreateRasterizerState(&rsDesc, &raterizer);
 }
 
 void Scene_Splatting::Release()
@@ -77,6 +85,9 @@ void Scene_Splatting::Render()
 	//D2D::GetDC()->PSGetShaderResources(1, 2, baseTex);
 
 	//-------------------------------------------------------
+	D2D::GetDC()->RSSetState(raterizer); // RS = 랜더스테이스 ,,,,  선으로만 출력
+	
+
 	ID3D11ShaderResourceView* alpha[2];
 	alpha[0] = *alphaTex;
 	alpha[1] = *alphaTex;

@@ -26,5 +26,8 @@ private:
 	Texture* baseTexA;
 	Texture* baseTexB;
 
+	ID3D11RasterizerState* raterizer; // 레지스터,,, [랜더링파이프라인에서 래스터라이즈],, 색상을 찍어줌
+
+
 };
 

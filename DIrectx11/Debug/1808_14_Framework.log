@@ -1,0 +1,3 @@
+﻿  Scene_Splatting.cpp
+c:\users\sga\desktop\lth\directx11\scenes\scene_splatting.cpp(37): warning C4101: 'meta' :참조되지 않은 지역 변수입니다.
+  1808_14_Framework.vcxproj -> C:\Users\SGA\Desktop\LTH\DIrectx11\Debug\Directx11.exe

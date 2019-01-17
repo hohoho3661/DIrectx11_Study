@@ -60,6 +60,7 @@ void Transform::Update()
 void Transform::Render()
 {
 	Buffer->SetVSBuffer(1);
+	Buffer->SetDSBuffer(1);
 }
 
 void Transform::Reset(DWORD flag)

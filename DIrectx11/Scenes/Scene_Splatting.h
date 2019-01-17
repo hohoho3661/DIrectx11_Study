@@ -16,6 +16,9 @@ public:
 	virtual void Render() override;
 
 private:
+	void CompileShader();
+
+private:
 	class QuadObject* obj;
 	class Shader* shader;
 	class Transform* trans;
@@ -28,6 +31,19 @@ private:
 
 	ID3D11RasterizerState* raterizer; // 레지스터,,, [랜더링파이프라인에서 래스터라이즈],, 색상을 찍어줌
 
+	class Shader* tesselVSPS;
+	ID3D11HullShader* hs;
+	ID3D11DomainShader* ds;
 
+	ID3D10Blob* blob;
+
+	int amount;
+	ID3D11Buffer* buffer;
+	struct Amount
+	{
+		int amount;
+		D3DXVECTOR3 padding;
+	}Data;
+	
 };
 

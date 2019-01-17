@@ -71,6 +71,7 @@ void Camera::Render()
 	}
 
 	D2D::Get()->GetDC()->VSSetConstantBuffers(0, 1, &buffer);
+	D2D::GetDC()->DSSetConstantBuffers(0, 1, &buffer);
 }
 
 void Camera::View(D3DXMATRIX * mat)

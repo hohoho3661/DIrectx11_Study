@@ -29,6 +29,11 @@ public:
 		Map(Data, Size);
 		D2D::Get()->GetDC()->VSSetConstantBuffers(slot, 1, &Buffer);
 	}
+	void SetDSBuffer(UINT slot)
+	{
+		Map(Data, Size);
+		D2D::GetDC()->DSSetConstantBuffers(slot, 1, &Buffer);
+	}
 private:
 	void* Data;
 	UINT Size;

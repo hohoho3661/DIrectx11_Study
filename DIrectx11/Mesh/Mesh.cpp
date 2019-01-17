@@ -25,7 +25,10 @@ void Mesh::Render()
 	UINT offset = 0;
 	D2D::Get()->GetDC()->IASetVertexBuffers(0, 1, &VertexBuffer, &strid, &offset);
 	D2D::Get()->GetDC()->IASetIndexBuffer(IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
-	D2D::Get()->GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	//D2D::Get()->GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	D2D::Get()->GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_3_CONTROL_POINT_PATCHLIST);
+
 	D2D::Get()->GetDC()->DrawIndexed(IndexCount, 0, 0);
 }
 
